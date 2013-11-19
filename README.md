@@ -8,7 +8,9 @@ This project meets the requirements for the following two options;
 	capturing command line arguments to build a DFA object and process the inputs file.
 * Compliment/Intersection - Read one DFA from command line and return compliment, or read two 
 	DFA's and return their intersection. The `boolop.rb` defines a class to hold one or two DFA's
-	as well as the functions that manipulate the two DFA's.
+	as well as the functions that manipulate the two DFA's. `my_boolop.rb` is a script that handles
+	capturing one or two input file paths and returns either the compliment of a single DFA 
+	or the intersection of two DFA's.
 
 Note: Both classes take advantage of the `file_reader.rb` which simply reads a file and returns 
 a collection `contents` which is just an Array of lines of type String
