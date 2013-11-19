@@ -1,0 +1,3 @@
+Build:
+Run:
+	ruby lib/my_boolop.rb
