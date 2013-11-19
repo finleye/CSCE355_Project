@@ -1,5 +1,5 @@
 CSCE 355 Programming Assignment
-*******************************
+===============================
 19 November 2013
 
 This project meets the requirements for the following two options;
@@ -12,5 +12,7 @@ This project meets the requirements for the following two options;
 	capturing one or two input file paths and returns either the compliment of a single DFA 
 	or the intersection of two DFA's.
 
-Note: Both classes take advantage of the `file_reader.rb` which simply reads a file and returns 
+Note
+****
+Both classes take advantage of the `file_reader.rb` which simply reads a file and returns 
 a collection `contents` which is just an Array of lines of type String
