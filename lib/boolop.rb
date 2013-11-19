@@ -15,22 +15,15 @@ class BoolOp
 	end
 
 	def gen_compliment
-		compliment_states = self.get_compliment_states
-
-		compliment = self.dfa
-		compliment.accepting_states = compliment_states
-		compliment.transitions = self.dfa.transitions
-
-		return compliment
-	end
-
-	def get_compliment_states
 		new_states = Array.new
-
 		for i in 0..self.dfa.num_states-1
 			new_states << i unless self.dfa.accepting_states.include?(i)
 		end
+		self.dfa.accepting_states = new_states
+	end
 
+	def get_compliment_states
+		
 		return new_states
 	end
 
