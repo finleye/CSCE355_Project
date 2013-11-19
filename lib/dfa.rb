@@ -9,6 +9,7 @@ class DFAArgumentError < ArgumentError; end
 class DFA
 	attr_accessor :reader, :num_states, :accepting_states, :alphabet, :transitions, :states
 
+	# initialize and object, by running methods below
 	def initialize(file)
 		@reader = FileReader.new(file)
 		raise DFAArgumentError, "Reader found no contents in file" if @reader.contents.nil?
@@ -19,10 +20,12 @@ class DFA
 		@transitions = self.build_transitions
 	end
 
+	# get states count from from line 0
 	def count_states
 		return self.reader.contents[0].split(':')[1].strip.to_i
 	end
 
+	# build an array of states i.e. [0,1,2]
 	def get_states
 		states = Array.new
 		for i in 0..self.num_states-1
@@ -31,6 +34,7 @@ class DFA
 		return states
 	end
 
+	# build an array of accepting states from line 1
 	def find_accepting
 		states =  self.reader.contents[1].split(':')[1].strip.split(' ')
 		rtn = Array.new
@@ -40,10 +44,12 @@ class DFA
 		return rtn
 	end
 
+	# build an array of the alphabet from line 2
 	def find_alpha
 		return self.reader.contents[2].split(':')[1].strip.split('')
 	end
 
+	# build the tranitions table from line 3, to the end
 	def build_transitions
 		table_text = self.reader.contents[3..self.reader.contents.count]
 		table_hash = Hash.new
@@ -58,10 +64,13 @@ class DFA
 		return table_hash
 	end
 
+	# use the tranistions table to return the next state given an input character, and the current state
 	def next_state(input, current_state)
 		return self.transitions[self.alphabet.index(input)][current_state] if self.alphabet.index(input)
 	end
 
+	# use next_state to iterate over an input string and return true or false if the final state
+	# is included in the accepting states
 	def valid_string?(input)
 		state = 0
 		input.split('').each do |c|
@@ -70,6 +79,7 @@ class DFA
 		return self.accepting_states.include?(state)
 	end
 
+	# use file_reader.rb to process an input file of strings and find if the string is accepting or rejecting
 	def process_inputs(file)
 		input_file = FileReader.new(file)
 		puts "\n"
@@ -82,6 +92,7 @@ class DFA
 		end
 	end
 
+	# print the DFA's information to a file
 	def to_file(filename_append)
 		output = File.new("#{self.reader.file_name.split('.txt')[0]}#{filename_append}.txt", "w+")
 		output << "Number of states: #{self.num_states}\n"
@@ -93,6 +104,7 @@ class DFA
 		output.close
 	end
 
+	# print the DFA's information to standard output
 	def std_out
 		puts "Number of states: #{self.num_states}\n"
 		puts "Accepting states: #{self.accepting_states.join(' ')}\n"
