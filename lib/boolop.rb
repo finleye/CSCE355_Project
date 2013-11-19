@@ -51,14 +51,14 @@ class BoolOp
 		intersection_dfa.states = intersection_dfa.get_states
 		hash_table = Hash.new
 
-		for i in 0..intersection_dfa.num_states-1
-			intersection_dfa.alphabet.each do |a|
+		intersection_dfa.alphabet.each do |a|
+			for i in 0..intersection_dfa.num_states-1
 				state = new_states[i].split('|')
 				output_state = "#{self.dfa.next_state(a, state[0].to_i)}|#{self.dfa2.next_state(a, state[1].to_i)}"
 				key = new_states.index(output_state)
 
-				hash_table[i] = hash_table[i] << key unless hash_table[i].nil?
-				hash_table[i] ||= Array.new << key
+				hash_table[intersection_dfa.alphabet.index(a)] = hash_table[intersection_dfa.alphabet.index(a)] << key unless hash_table[intersection_dfa.alphabet.index(a)].nil?
+				hash_table[intersection_dfa.alphabet.index(a)] ||= Array.new << key
 			end
 		end
 

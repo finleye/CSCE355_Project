@@ -11,6 +11,7 @@ class DFA
 
 	def initialize(file)
 		@reader = FileReader.new(file)
+		raise DFAArgumentError, "Reader found no contents in file" if @reader.contents.nil?
 		@num_states = self.count_states
 		@states = self.get_states
 		@accepting_states = self.find_accepting
@@ -96,8 +97,13 @@ class DFA
 		puts "Number of states: #{self.num_states}\n"
 		puts "Accepting states: #{self.accepting_states.join(' ')}\n"
 		puts "Alphabet: #{self.alphabet.join('')}\n"
-		self.transitions.each do |k, v|
-			puts "#{v.join(' ')}\n"
+		for i in 0..self.num_states-1
+			out = ""
+			self.transitions.each do |k, v|
+				out +=  "#{v[i]} "
+			end
+			out.chomp(" ")
+			puts out
 		end
 	end
 end
