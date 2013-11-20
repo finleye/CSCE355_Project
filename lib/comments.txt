@@ -1,4 +1,4 @@
-Comments for self-test -------- Wed Nov 20, 2013 at 16:1:58 EST
+Comments for self-test -------- Wed Nov 20, 2013 at 16:31:12 EST
 parsing simulator.txt ... done
 building simulator ...
 done
@@ -53,3 +53,79 @@ testing boolop ...
     ruby ./my_boolop.rb randomHexDFA.txt > test-outputs/boolop/randomHexDFA.txt 2> test-outputs/boolop/randomHexDFA-err.txt
     terminated normally
   test-outputs/boolop/randomHexDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (complement) on handoutDFA ...
+    ruby ./my_boolop.rb handoutDFA.txt > test-outputs/boolop/handoutDFA.txt 2> test-outputs/boolop/handoutDFA-err.txt
+    terminated normally
+  test-outputs/boolop/handoutDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (complement) on bigDFA ...
+    ruby ./my_boolop.rb bigDFA.txt > test-outputs/boolop/bigDFA.txt 2> test-outputs/boolop/bigDFA-err.txt
+    terminated normally
+  test-outputs/boolop/bigDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (complement) on bigDFA-comp ...
+    ruby ./my_boolop.rb bigDFA-comp.txt > test-outputs/boolop/bigDFA-comp.txt 2> test-outputs/boolop/bigDFA-comp-err.txt
+    terminated normally
+  test-outputs/boolop/bigDFA-comp.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on smallDFA and smallDFA2 ...
+    ruby ./my_boolop.rb smallDFA.txt smallDFA2.txt > test-outputs/boolop/smallDFA-x-smallDFA2.txt 2> test-outputs/boolop/smallDFA-x-smallDFA2-err.txt
+    terminated normally
+  test-outputs/boolop/smallDFA-x-smallDFA2.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on smallerDFA and handoutDFA ...
+    ruby ./my_boolop.rb smallerDFA.txt handoutDFA.txt > test-outputs/boolop/smallerDFA-x-handoutDFA.txt 2> test-outputs/boolop/smallerDFA-x-handoutDFA-err.txt
+    terminated normally
+  test-outputs/boolop/smallerDFA-x-handoutDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on handoutDFA and smallerDFA ...
+    ruby ./my_boolop.rb handoutDFA.txt smallerDFA.txt > test-outputs/boolop/handoutDFA-x-smallerDFA.txt 2> test-outputs/boolop/handoutDFA-x-smallerDFA-err.txt
+    terminated normally
+  test-outputs/boolop/handoutDFA-x-smallerDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on searchDFA1 and searchDFA2 ...
+    ruby ./my_boolop.rb searchDFA1.txt searchDFA2.txt > test-outputs/boolop/searchDFA1-x-searchDFA2.txt 2> test-outputs/boolop/searchDFA1-x-searchDFA2-err.txt
+    terminated normally
+  test-outputs/boolop/searchDFA1-x-searchDFA2.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on searchDFA2 and searchDFA1 ...
+    ruby ./my_boolop.rb searchDFA2.txt searchDFA1.txt > test-outputs/boolop/searchDFA2-x-searchDFA1.txt 2> test-outputs/boolop/searchDFA2-x-searchDFA1-err.txt
+    terminated normally
+  test-outputs/boolop/searchDFA2-x-searchDFA1.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on bigDFA and randomHexDFA ...
+    ruby ./my_boolop.rb bigDFA.txt randomHexDFA.txt > test-outputs/boolop/bigDFA-x-randomHexDFA.txt 2> test-outputs/boolop/bigDFA-x-randomHexDFA-err.txt
+    terminated normally
+  test-outputs/boolop/bigDFA-x-randomHexDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on bigDFA and bigDFA-comp ...
+    ruby ./my_boolop.rb bigDFA.txt bigDFA-comp.txt > test-outputs/boolop/bigDFA-x-bigDFA-comp.txt 2> test-outputs/boolop/bigDFA-x-bigDFA-comp-err.txt
+    terminated normally
+  test-outputs/boolop/bigDFA-x-bigDFA-comp.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+  Running boolop (product) on bigDFA-comp and randomHexDFA ...
+    ruby ./my_boolop.rb bigDFA-comp.txt randomHexDFA.txt > test-outputs/boolop/bigDFA-comp-x-randomHexDFA.txt 2> test-outputs/boolop/bigDFA-comp-x-randomHexDFA-err.txt
+    terminated normally
+  test-outputs/boolop/bigDFA-comp-x-randomHexDFA.txt exists -- checking equivalence with solution DFA
+  the DFAs are equivalent (correct)
+done with boolop
+
+######################################################
+Summary for self-test:
+
+simulator: execution always completed without errors
+  progress level 5 with 0 execution errors
+minimizer: not implemented -- minimizer.txt does not exist
+  progress level 0 with 0 execution errors
+searcher: not implemented -- searcher.txt does not exist
+  progress level 0 with 0 execution errors
+boolop: execution always completed without errors
+  progress level 5 with 0 execution errors
+invhom: not implemented -- invhom.txt does not exist
+  progress level 0 with 0 execution errors
+properties: not implemented -- properties.txt does not exist
+  progress level 0 with 0 execution errors
+
+There were a total of 0 execution errors found.
+######################################################

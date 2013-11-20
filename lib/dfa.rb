@@ -110,8 +110,13 @@ class DFA
 		output << "Number of states: #{self.num_states}\n"
 		output << "Accepting states: #{self.accepting_states.join(' ')}\n"
 		output << "Alphabet: #{self.alphabet.join('')}\n"
-		self.transitions.each do |k, v|
-			output << "#{v.join(' ')}\n"
+		for i in 0..self.num_states-1
+			out = ""
+			self.alphabet.each_with_index do |a, j|
+				out += "#{transitions[j][i]} "
+			end
+			out.chomp(" ")
+			output << out
 		end
 		output.close
 	end
@@ -123,8 +128,8 @@ class DFA
 		puts "Alphabet: #{self.alphabet.join('')}\n"
 		for i in 0..self.num_states-1
 			out = ""
-			self.transitions.each do |k, v|
-				out +=  "#{v[i]} "
+			self.alphabet.each_with_index do |a, j|
+				out += "#{transitions[j][i]} "
 			end
 			out.chomp(" ")
 			puts out
