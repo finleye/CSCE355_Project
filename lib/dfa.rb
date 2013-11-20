@@ -22,7 +22,7 @@ class DFA
 
 	# get states count from from line 0
 	def count_states
-		return self.reader.contents[0].split(':')[1].strip.to_i
+		return self.reader.contents[0].split("Number of states: ")[1].strip.to_i
 	end
 
 	# build an array of states i.e. [0,1,2]
@@ -36,7 +36,7 @@ class DFA
 
 	# build an array of accepting states from line 1
 	def find_accepting
-		states =  self.reader.contents[1].split(':')[1].strip.split(' ')
+		states =  self.reader.contents[1].split("Accepting states: ")[1].strip.split(' ')
 		rtn = Array.new
 		states.each do |s|
 			rtn << s.to_i
@@ -46,7 +46,7 @@ class DFA
 
 	# build an array of the alphabet from line 2
 	def find_alpha
-		return self.reader.contents[2].split(':')[1].strip.split('')
+		return self.reader.contents[2].split("Alphabet: ")[1].split('')
 	end
 
 	# build the tranitions table from line 3, to the end
@@ -66,16 +66,27 @@ class DFA
 
 	# use the tranistions table to return the next state given an input character, and the current state
 	def next_state(input, current_state)
-		return self.transitions[self.alphabet.index(input)][current_state] if self.alphabet.index(input)
+		alpha_index = self.alphabet.index(input)
+		# puts alpha_index.inspect
+		return self.transitions[alpha_index][current_state] if alpha_index
 	end
 
 	# use next_state to iterate over an input string and return true or false if the final state
 	# is included in the accepting states
 	def valid_string?(input)
 		state = 0
-		input.split('').each do |c|
-			state = next_state(c, state)
+		trace = ""
+		for i in 0..input.length-1
+			out = "\"#{input[i..i]}\"|#{state}"
+			state = next_state(input[i..i], state)
+			out += " => #{state} "
+			# puts out
 		end
+
+		# puts "\ntrace: #{trace}"
+		# puts "\naccepting states: #{self.accepting_states}"
+		# puts "\nfinal state: #{state}"
+
 		return self.accepting_states.include?(state)
 	end
 

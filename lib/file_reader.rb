@@ -14,6 +14,6 @@ class FileReader
 
 	# open the file, split its contents at line breaks and return the collection of lines
 	def read_contents
-		return File.open(self.file_name).read.split(/\n/) if self.file_name
+		return File.open(self.file_name).read.lines.map(&:chomp) if self.file_name
 	end
 end
