@@ -17,21 +17,16 @@ class TestBoolOp < Test::Unit::TestCase
 		assert_equal([2], bool.dfa.accepting_states)
 	end
 
-	def test_compliments
-		bool = init_bool_op
-		assert_equal([0, 1, 3, 4], bool.get_compliment_states)
-	end
-
 	def test_comp_gen
 		bool = init_bool_op
-		assert_equal([0, 1, 3, 4], bool.gen_compliment.accepting_states)
+		assert_equal([0, 1, 3, 4], bool.gen_compliment)
 	end
 
 	def test_ouput
 		file_name = "../test-suite/boolop/bigDFA.txt"
 		bool = BoolOp.new([file_name])
-		compliment = bool.gen_compliment
-		compliment.to_file("-comp-TEST")
+		bool.gen_compliment
+		bool.dfa.to_file("-comp-TEST")
 
 		expected_out = File.open("#{bool.dfa.reader.file_name.split('.txt')[0]}-comp.txt").read.split(/\n/)
 		actual_out = File.open("#{bool.dfa.reader.file_name.split('.txt')[0]}-comp-TEST.txt").read.split(/\n/)
@@ -43,6 +38,10 @@ class TestBoolOp < Test::Unit::TestCase
 		bool = init_bool_op
 		compliment = bool.intersection
 
-		compliment.to_file("-TEST")
+		compliment.to_file("-X-TEST")
+		expected_out = File.open("#{bool.dfa.reader.file_name.split('.txt')[0]}-x-smallDFA2.txt").read.split(/\n/)
+		actual_out = File.open("#{bool.dfa.reader.file_name.split('.txt')[0]}-X-TEST.txt").read.split(/\n/)
+
+		assert_equal(expected_out[2], actual_out[2])
 	end
 end
