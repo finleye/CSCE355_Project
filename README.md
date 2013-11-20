@@ -16,3 +16,7 @@ Note
 ****
 Both classes take advantage of the `file_reader.rb` which simply reads a file and returns 
 a collection `contents` which is just an Array of lines of type String
+
+Development Enviroment
+**********************
+`ruby 2.0.0p195 (2013-05-14 revision 40734) [x86_64-darwin12.4.0]` on OS X 10.9
