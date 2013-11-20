@@ -20,3 +20,5 @@ a collection `contents` which is just an Array of lines of type String
 Development Enviroment
 **********************
 `ruby 2.0.0p195 (2013-05-14 revision 40734) [x86_64-darwin12.4.0]` on OS X 10.9
+Update 20 November 2013
+`ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-linux]` on Ubuntu 12.04
