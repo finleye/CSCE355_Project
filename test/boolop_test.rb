@@ -2,7 +2,8 @@
 # 18 November 2013
 # file_reader_test.rb
 
-require_relative "../lib/boolop.rb"
+# require_relative "../lib/boolop.rb"
+require "#{File.dirname(__FILE__)}./lib/boolop.rb"
 require "test/unit"
 
 class TestBoolOp < Test::Unit::TestCase

@@ -7,7 +7,8 @@
 # or "reject" for each string in the [input]-strings.txt given by the second command 
 # line argument.
 
-require_relative "./dfa.rb"
+# require_relative "./dfa.rb"
+require "#{File.dirname(__FILE__)}/dfa.rb"
 
 # check for missing arguments
 unless !ARGV[0].nil? && !ARGV[1].nil?

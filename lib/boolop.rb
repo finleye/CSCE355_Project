@@ -2,7 +2,8 @@
 # 18 November 2013
 # dfs_sim.rb
 
-require_relative "./dfa.rb"
+# require_relative "./dfa.rb"
+require "#{File.dirname(__FILE__)}/dfa.rb"
 
 class BoolOpArgumentError < ArgumentError; end
 

@@ -2,7 +2,9 @@
 # 18 November 2013
 # dfa_test.rb
 
-require_relative "../lib/dfa.rb"
+# require_relative "../lib/dfa.rb"
+require "#{File.dirname(__FILE__)}./lib/dfa.rb"
+
 require "test/unit"
 
 class TestFileReader < Test::Unit::TestCase
@@ -45,7 +47,6 @@ class TestFileReader < Test::Unit::TestCase
 	def test_valid_string
 		dfa = create_dfa
 		# assert_equal(true, dfa.valid_string?(""))
-		puts "accepting = #{dfa.accepting_states.inspect}"
 		assert_equal(true, dfa.valid_string?("2d"))
 		assert_equal(true, dfa.valid_string?("2d"))
 		assert_equal(false, dfa.valid_string?("5f"))

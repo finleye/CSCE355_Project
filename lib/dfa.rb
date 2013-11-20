@@ -2,7 +2,8 @@
 # 18 November 2013
 # dfs_sim.rb
 
-require_relative "./file_reader.rb"
+# require_relative "./file_reader.rb"
+require "#{File.dirname(__FILE__)}/file_reader.rb"
 
 class DFAArgumentError < ArgumentError; end
 

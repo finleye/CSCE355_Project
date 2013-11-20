@@ -16,10 +16,10 @@
 ######## Edit the following to reflect your directories (mandatory):
 
 # root directory for the test files
-$test_suite_root = "/Users/coreyfinley/Documents/CSCE355_Project/test-suite";
+$test_suite_root = "/acct/s1/finleye/Documents/CSCE355/test-suite";
 
 # directory holding the executables used in testing
-$bin_dir = "/Users/coreyfinley/Documents/CSCE355_Project/bin";
+$bin_dir = "/acct/s1/finleye/Documents/CSCE355/bin";
 
 
 ######## Edit the following to add or remove test files (optional):

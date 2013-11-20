@@ -1,6 +1,4 @@
 comments.txt exists -- making backup comments.bak
-Use of uninitialized value $rc in right bitshift (>>) at /Users/coreyfinley/Documents/CSCE355_Project/bin/project-test.pl line 172, <BR> line 3.
-
-Done.
-Comments are in ./lib/comments.txt
-
+Use of uninitialized value $rc in right bitshift (>>) at /acct/s1/finleye/Documents/CSCE355/bin/project-test.pl line 172, <BR> line 3.
+/acct/s1/finleye/Documents/CSCE355/bin/isDFA: 1: /acct/s1/finleye/Documents/CSCE355/bin/isDFA: Syntax error: Unterminated quoted string
+ERROR: BUG in isDFA (fatal)

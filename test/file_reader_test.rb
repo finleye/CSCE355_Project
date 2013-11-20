@@ -2,7 +2,8 @@
 # 18 November 2013
 # file_reader_test.rb
 
-require_relative "../lib/file_reader.rb"
+# require_relative "../lib/file_reader.rb"
+require "#{File.dirname(__FILE__)}./lib/file_reader.rb"
 require "test/unit"
 
 class TestDFAReader < Test::Unit::TestCase
